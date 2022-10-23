@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="run">
+	<target name="run" depends="build">
+		<java classname="App" fork="yes">
+			<classpath path=".out/" />
+		</java>
+	</target>
+
+	<target name="build">
+		<javac includeantruntime="false" srcdir="./src/" destdir=".out/" />
+	</target>
+</project>
