@@ -8,6 +8,7 @@
 	</target>
 
 	<target name="build">
+		<mkdir dir=".out/" />
 		<javac includeantruntime="false" srcdir="./src/" destdir=".out/" />
 	</target>
 </project>
