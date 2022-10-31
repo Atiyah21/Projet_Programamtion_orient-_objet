@@ -1,6 +1,8 @@
 
 import model.Tuile;
 import model.Orientation;
+import model.Plateau;
+import model.Coords;
 
 public class App{
 	
@@ -15,5 +17,9 @@ public class App{
 
 		tuile.rotate(Orientation.EAST);
 		System.out.println(tuile);
+		
+
+		//Plateau p = new Plateau();
+		//System.out.println(p.isFree(new Coords(0, 0)));
 	}
 }

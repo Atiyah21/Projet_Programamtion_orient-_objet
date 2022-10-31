@@ -1,17 +1,11 @@
 package model;
 
 public class Tuile{
-	Tuile tuile_n = null;
-	Tuile tuile_s = null;
-	Tuile tuile_e = null;
-	Tuile tuile_w = null;
 
 	int[] id_n;
 	int[] id_e;
 	int[] id_s;
 	int[] id_w;
-
-	Orientation orientation;
 
 	public Tuile(){
 		id_n = new int[3];
