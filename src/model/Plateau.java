@@ -25,12 +25,12 @@ public class Plateau{
 			!isFree(new Coords(c.x, c.y + 1));
 	}
 
-	public int isValid(Coords c, Tuile t){
+	/*public int isValid(Coords c, Tuile t){
 		// return -1 if invalid, and n for winning n points
 		if(!isFree(c))
 			return false;
 		if(!isReachable(c))
 			return false;
 		return false;
-	}
+	}*/
 }
