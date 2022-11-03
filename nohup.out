@@ -1,0 +1,73 @@
+Discord 0.0.21
+Starting app.
+Starting updater.
+[Modules] Modules initializing
+[Modules] Distribution: remote
+[Modules] Host updates: disabled
+[Modules] Module updates: enabled
+[Modules] Module install path: /home/ayman/snap/discord/145/.config/discord/0.0.21/modules
+[Modules] Module installed file path: /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/installed.json
+[Modules] Module download path: /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/pending
+[Modules] No updates to install
+[Modules] Host is up to date.
+[Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+[Modules] No module updates available.
+Optional module ./ElectronTestRpc was not included.
+WEIGHT /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/discord_krisp/NC_small_8k.thw
+WEIGHT /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/discord_krisp/NC_small_16k.thw
+WEIGHT /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/discord_krisp/c6.s.f.27f1a3.thw
+WEIGHT /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/discord_krisp/VAD_weight.thw
+[Modules] Host is up to date.
+[Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+[Modules] No module updates available.
+
+(Discord:3909): GLib-GIO-WARNING **: 10:02:23.423: Error creating IO channel for /proc/self/mountinfo: Permission denied (g-file-error-quark, 2)
+Discord 0.0.21
+Starting app.
+Starting updater.
+[Modules] Modules initializing
+[Modules] Distribution: remote
+[Modules] Host updates: disabled
+[Modules] Module updates: enabled
+[Modules] Module install path: /home/ayman/snap/discord/145/.config/discord/0.0.21/modules
+[Modules] Module installed file path: /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/installed.json
+[Modules] Module download path: /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/pending
+[Modules] No updates to install
+[Modules] Host is up to date.
+[Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+[Modules] No module updates available.
+Optional module ./ElectronTestRpc was not included.
+WEIGHT /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/discord_krisp/NC_small_8k.thw
+WEIGHT /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/discord_krisp/NC_small_16k.thw
+WEIGHT /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/discord_krisp/c6.s.f.27f1a3.thw
+WEIGHT /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/discord_krisp/VAD_weight.thw
+[Modules] Host is up to date.
+[Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+[Modules] No module updates available.
+[Modules] Host is up to date.
+[Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+[Modules] No module updates available.
+Discord 0.0.21
+Starting app.
+Starting updater.
+[Modules] Modules initializing
+[Modules] Distribution: remote
+[Modules] Host updates: disabled
+[Modules] Module updates: enabled
+[Modules] Module install path: /home/ayman/snap/discord/145/.config/discord/0.0.21/modules
+[Modules] Module installed file path: /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/installed.json
+[Modules] Module download path: /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/pending
+[Modules] No updates to install
+[Modules] Host is up to date.
+[Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+[Modules] No module updates available.
+Optional module ./ElectronTestRpc was not included.
+WEIGHT /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/discord_krisp/NC_small_8k.thw
+WEIGHT /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/discord_krisp/NC_small_16k.thw
+WEIGHT /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/discord_krisp/c6.s.f.27f1a3.thw
+WEIGHT /home/ayman/snap/discord/145/.config/discord/0.0.21/modules/discord_krisp/VAD_weight.thw
+[Modules] Host is up to date.
+[Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+[Modules] No module updates available.
+[10873:1101/153434.256276:FATAL:gpu_data_manager_impl_private.cc(415)] GPU process isn't usable. Goodbye.
+Failed to generate minidump.

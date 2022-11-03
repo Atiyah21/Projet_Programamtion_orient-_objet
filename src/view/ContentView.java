@@ -37,7 +37,16 @@ public class ContentView extends JFrame {
 		exitButton.setBounds(width / 2 - 75, height / 3 + 160, 130, 60);
 
 		exitButton.addActionListener(e -> System.exit(0));
-
+		dominosButton.addActionListener(e -> {
+			DominosView dominosView = new DominosView();
+			dominosView.setVisible(true);
+			this.setVisible(false);
+		});
+		carcassonneButton.addActionListener(e -> {
+			CarcassonneView carcassonneView = new CarcassonneView();
+			carcassonneView.setVisible(true);
+			this.setVisible(false);
+		});
 		this.setVisible(true);
 	}
 }
