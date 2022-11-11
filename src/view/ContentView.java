@@ -39,13 +39,11 @@ public class ContentView extends JFrame {
 		exitButton.addActionListener(e -> System.exit(0));
 		dominosButton.addActionListener(e -> {
 			DominosView dominosView = new DominosView();
-			dominosView.setVisible(true);
-			this.setVisible(false);
+			this.setContentPane(dominosView);
 		});
 		carcassonneButton.addActionListener(e -> {
 			CarcassonneView carcassonneView = new CarcassonneView();
-			carcassonneView.setVisible(true);
-			this.setVisible(false);
+			this.setContentPane(carcassonneView);
 		});
 		this.setVisible(true);
 	}

@@ -1,8 +1,8 @@
 package view;
 
-public class CarcassonneView {
+import javax.swing.JPanel;
 
-    public void setVisible(boolean b) {
-    }
-
+public class CarcassonneView extends JPanel {
+	public CarcassonneView() {
+	}
 }
