@@ -28,7 +28,7 @@ public class ContentView extends JFrame {
 			DominosView dominosView = new DominosView();
 			this.setContentPane(dominosView);
 		});
-		/*cgetCarcassoneBtn.addActionListener(e -> {
+		/*cgetCarcassone	Btn.addActionListener(e -> {
 			CarcassonneView carcassonneView = new CarcassonneView();
 			this.setContentPane(carcassonneView);
 		});
