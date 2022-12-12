@@ -7,7 +7,7 @@ import java.lang.StringBuilder;
 
 public class Plateau {
 	Stack<Tuile> sac;
-	Map<Coords, Tuile> plateau;
+	public Map<Coords, Tuile> plateau;
 
 	int max_x = 0;
 	int max_y = 0;
@@ -17,6 +17,14 @@ public class Plateau {
 	public Plateau() {
 		sac = new Stack<>();
 		plateau = new HashMap<>();
+		int[] n = { 3, 0, 0 };
+		int[] e = { 4, 0, 0 };
+		int[] s = { 1, 0, 0 };
+		int[] w = { 2, 0, 0 };
+		Tuile init = new Tuile(n, e, s, w);
+		plateau.put(new Coords(0, 0), init);
+		System.out.println(isReachable(new Coords(1, 0)));
+		System.out.println(isReachable(new Coords(2, 0)));
 	}
 
 	public String toString() {
@@ -38,10 +46,13 @@ public class Plateau {
 		return cs;
 	}
 
+	public Tuile getTuile(Coords c) {
+		return plateau.get(c);
+	}
+
 	public boolean isReachable(Coords c) {
-		Coords[] cs = near(c);
-		for (Coords l : cs) {
-			if (!isFree(l))
+		for (Coords cs : near(c)) {
+			if (!isFree(cs))
 				return true;
 		}
 		return false;
@@ -49,10 +60,14 @@ public class Plateau {
 
 	public int isValid(Coords c, Tuile t) {
 		// return -1 if invalid, and n for winning n points
-		if (!isFree(c))
+		if (!isFree(c)) {
+			System.out.println(1);
 			return -1;
-		if (!isReachable(c))
+		}
+		if (!isReachable(c)) {
+			System.out.println(2);
 			return -1;
+		}
 		int acc = 0;
 
 		Coords[] n = near(c);
