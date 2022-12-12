@@ -1,13 +1,18 @@
 package view.dominos;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.*;
 import java.awt.event.*;
 import model.Tuile;
 
-public class DominosView extends JFrame {
+public class DominosView extends JPanel {
     public DominosView() {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        int width = Toolkit.getDefaultToolkit().getScreenSize().width;
+		int height = Toolkit.getDefaultToolkit().getScreenSize().height;
+
+		this.setSize(width, height);
         this.setLayout(new FlowLayout());
 
         int[] n = { 1, 2, 2 };

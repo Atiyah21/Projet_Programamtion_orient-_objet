@@ -1,6 +1,9 @@
 package view;
 
 import javax.swing.*;
+
+import view.dominos.DominosView;
+
 import java.awt.*;
 
 public class ContentView extends JFrame {
@@ -17,34 +20,19 @@ public class ContentView extends JFrame {
 		// régler la taille de JFrame à la taille de l'écran
 		this.setSize(width, height);
 
-		// création d'un panneau (JPanel)
-		panel.setLayout(new GridLayout(3, 1));
-		panel.setOpaque(true);
-		this.setContentPane(panel);
+		Menu menu = new Menu(this);
 
-		this.setBackground(new java.awt.Color(200, 200, 200));
+		menu.getExitBtn().addActionListener(e -> System.exit(0));
 
-		JButton dominosButton = new JButton("Dominos carrés");
-		JButton carcassonneButton = new JButton("Jeu de Carcassonne");
-		JButton exitButton = new JButton("Quitter");
-
-		panel.add(dominosButton);
-		panel.add(carcassonneButton);
-		panel.add(exitButton);
-
-		dominosButton.setBounds(width / 2 - 75, height / 3, 130, 60);
-		carcassonneButton.setBounds(width / 2 - 75, height / 3 + 80, 130, 60);
-		exitButton.setBounds(width / 2 - 75, height / 3 + 160, 130, 60);
-
-		exitButton.addActionListener(e -> System.exit(0));
-		dominosButton.addActionListener(e -> {
+		menu.getDominosBtn().addActionListener(e -> {
 			DominosView dominosView = new DominosView();
 			this.setContentPane(dominosView);
 		});
-		carcassonneButton.addActionListener(e -> {
+		/*cgetCarcassone	Btn.addActionListener(e -> {
 			CarcassonneView carcassonneView = new CarcassonneView();
 			this.setContentPane(carcassonneView);
 		});
+		*/
 		this.setVisible(true);
 	}
 }
