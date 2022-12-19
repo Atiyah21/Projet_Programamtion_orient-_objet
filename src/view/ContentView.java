@@ -11,15 +11,16 @@ public class ContentView extends JFrame {
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JPanel panel = new JPanel();
+		setLayout(new BorderLayout());
 
 		// récuperer la dimension de l'écran
-		int width = Toolkit.getDefaultToolkit().getScreenSize().width;
-		int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-
-		// régler la taille de JFrame à la taille de l'écran
-		this.setSize(width, height);
-
+		/*
+		 * int width = Toolkit.getDefaultToolkit().getScreenSize().width;
+		 * int height = Toolkit.getDefaultToolkit().getScreenSize().height;
+		 * 
+		 * // régler la taille de JFrame à la taille de l'écran
+		 * this.setSize(width, height);
+		 */
 		Menu menu = new Menu(this);
 
 		menu.getExitBtn().addActionListener(e -> System.exit(0));
@@ -27,12 +28,17 @@ public class ContentView extends JFrame {
 		menu.getDominosBtn().addActionListener(e -> {
 			DominosView dominosView = new DominosView();
 			this.setContentPane(dominosView);
+			validate();
 		});
-		/*cgetCarcassone	Btn.addActionListener(e -> {
-			CarcassonneView carcassonneView = new CarcassonneView();
-			this.setContentPane(carcassonneView);
-		});
-		*/
+
+		/*
+		 * menu.getCarcassoneBtn().addActionListener(e -> {
+		 * CarcassonneView carcassonneView = new CarcassonneView();
+		 * this.setContentPane(carcassonneView);
+		 * validate();
+		 * });
+		 */
+
 		this.setVisible(true);
 	}
 }

@@ -31,12 +31,6 @@ public class Tuile {
 		id_e = tmp;
 	}
 
-	public void rotate(Orientation o) {
-		for (int i = 0; i < o.value; i++) {
-			rotate();
-		}
-	}
-
 	public String toString() {
 		String acc = "X";
 		for (int i = 0; i < 3; i++) {

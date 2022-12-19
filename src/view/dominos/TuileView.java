@@ -1,26 +1,19 @@
 package view.dominos;
 
 import javax.swing.*;
-import javax.swing.border.*;
 import java.awt.*;
 import model.Tuile;
 
 public class TuileView extends JPanel {
 
     Tuile model;
+    Dimension preferredSize = new Dimension(100, 100);
 
     class Case extends JLabel {
         Case(int n) {
             super();
-            if (n > -1) {
-                setText(String.valueOf(n));
-                setBorder(BorderFactory.createLineBorder(Color.black));
-            } else {
-                setText(" ");
-                setBorder(new EmptyBorder(0, 12, 0, 0));
-            }
-            setOpaque(true);
-            setBackground(new Color(215, 194, 231));
+            setText(String.valueOf(n));
+            setBorder(BorderFactory.createLineBorder(Color.black));
             setHorizontalAlignment(SwingConstants.CENTER);
             setVerticalAlignment(SwingConstants.CENTER);
         }
@@ -56,34 +49,58 @@ public class TuileView extends JPanel {
         w1 = new Case(model.id_w[1]);
         w2 = new Case(model.id_w[2]);
 
-        setLayout(new GridLayout(5, 5));
-        add(new Case(-1));
-        add(n0);
-        add(n1);
-        add(n2);
-        add(new Case(-1));
-        add(w0);
-        add(new Case(-1));
-        add(new Case(-1));
-        add(new Case(-1));
-        add(e0);
-        add(w1);
-        add(new Case(-1));
-        add(new Case(-1));
-        add(new Case(-1));
-        add(e1);
-        add(w2);
-        add(new Case(-1));
-        add(new Case(-1));
-        add(new Case(-1));
-        add(e2);
-        add(new Case(-1));
-        add(s0);
-        add(s1);
-        add(s2);
-        add(new Case(-1));
+        setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx = 1;
+        c.gridy = 0;
+        add(n0, c);
+        c.gridx = 2;
+        add(n1, c);
+        c.gridx = 3;
+        add(n2, c);
+        c.gridx = 4;
+        c.gridy = 1;
+        add(e0, c);
+        c.gridy = 2;
+        add(e1, c);
+        c.gridy = 3;
+        add(e2, c);
+        c.gridx = 1;
+        c.gridy = 4;
+        add(s0, c);
+        c.gridx = 2;
+        add(s1, c);
+        c.gridx = 3;
+        add(s2, c);
+        c.gridx = 0;
+        c.gridy = 1;
+        add(w0, c);
+        c.gridy = 2;
+        add(w1, c);
+        c.gridy = 3;
+        add(w2, c);
+
+        setOpaque(true);
+        setBackground(new Color(215, 194, 231));
 
         setBorder(BorderFactory.createLineBorder(Color.black));
+    }
+
+    public TuileView() {
+        super();
+    }
+
+    @Override
+    public void setPreferredSize(Dimension d) {
+        preferredSize = d;
+        for (Component c : getComponents()) {
+            c.setPreferredSize(new Dimension((int) d.getWidth() / 5, (int) d.getHeight() / 5));
+        }
+    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        return preferredSize;
     }
 
     public void update() {

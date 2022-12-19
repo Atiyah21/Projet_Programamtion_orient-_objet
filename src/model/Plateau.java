@@ -1,30 +1,23 @@
 package model;
 
-import java.util.Map;
 import java.util.HashMap;
-import java.util.Stack;
 import java.lang.StringBuilder;
 
-public class Plateau {
-	Stack<Tuile> sac;
-	public Map<Coords, Tuile> plateau;
+public class Plateau extends HashMap<Coords, Tuile> {
 
-	int max_x = 0;
-	int max_y = 0;
-	int min_x = 0;
-	int min_y = 0;
+	public int max_x = 0;
+	public int max_y = 0;
+	public int min_x = 0;
+	public int min_y = 0;
 
 	public Plateau() {
-		sac = new Stack<>();
-		plateau = new HashMap<>();
+		super();
 		int[] n = { 3, 0, 0 };
 		int[] e = { 4, 0, 0 };
 		int[] s = { 1, 0, 0 };
 		int[] w = { 2, 0, 0 };
 		Tuile init = new Tuile(n, e, s, w);
-		plateau.put(new Coords(0, 0), init);
-		System.out.println(isReachable(new Coords(1, 0)));
-		System.out.println(isReachable(new Coords(2, 0)));
+		put(new Coords(0, 0), init);
 	}
 
 	public String toString() {
@@ -34,7 +27,7 @@ public class Plateau {
 	}
 
 	public boolean isFree(Coords c) {
-		return plateau.get(c) == null;
+		return get(c) == null;
 	}
 
 	public Coords[] near(Coords c) {
@@ -47,7 +40,7 @@ public class Plateau {
 	}
 
 	public Tuile getTuile(Coords c) {
-		return plateau.get(c);
+		return get(c);
 	}
 
 	public boolean isReachable(Coords c) {
@@ -71,32 +64,18 @@ public class Plateau {
 		int acc = 0;
 
 		Coords[] n = near(c);
-		for (int i = 0; i < 4; i++) {
-			switch (i) {
-				case 0:
-					if (!isFree(n[i]))
-						if (Utils.equals(plateau.get(n[i]).id_e, t.id_w))
-							acc += Utils.sum(t.id_w);
-					break;
-				case 1:
-					if (!isFree(n[i]))
-						if (Utils.equals(plateau.get(n[i]).id_w, t.id_e))
-							acc += Utils.sum(t.id_e);
-					break;
-				case 2:
-					if (!isFree(n[i]))
-						if (Utils.equals(plateau.get(n[i]).id_s, t.id_n))
-							acc += Utils.sum(t.id_n);
-					break;
-				case 3:
-					if (!isFree(n[i]))
-						if (Utils.equals(plateau.get(n[i]).id_n, t.id_s))
-							acc += Utils.sum(t.id_s);
-					break;
-				default:
-					break;
-			}
-		}
+		if (!isFree(n[0]))
+			if (Utils.equals(get(n[0]).id_e, t.id_w))
+				acc += Utils.sum(t.id_w);
+		if (!isFree(n[1]))
+			if (Utils.equals(get(n[1]).id_w, t.id_e))
+				acc += Utils.sum(t.id_e);
+		if (!isFree(n[2]))
+			if (Utils.equals(get(n[2]).id_s, t.id_n))
+				acc += Utils.sum(t.id_n);
+		if (!isFree(n[3]))
+			if (Utils.equals(get(n[3]).id_n, t.id_s))
+				acc += Utils.sum(t.id_s);
 		if (acc == 0)
 			return -1;
 		return acc;
