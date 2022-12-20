@@ -1,41 +1,44 @@
 package view.dominos;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-
 import java.awt.*;
 import java.awt.event.*;
-import model.Tuile;
-import model.Plateau;
+import model.Game;
 
 public class DominosView extends JPanel {
+    Game game;
+    PlateauView plateauView;
+    TuileView pioche;
+    JPanel container;
+
     public DominosView() {
-        /*
-         * int width = Toolkit.getDefaultToolkit().getScreenSize().width;
-         * int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-         * 
-         * this.setSize(width, height);
-         *
-         * int[] n = { 1, 2, 2 };
-         * int[] w = { 3, 4, 4 };
-         * int[] e = { 5, 6, 6 };
-         * int[] s = { 7, 8, 8 };
-         * 
-         * Tuile tuile = new Tuile(n, e, s, w);
-         * TuileView t = new TuileView(tuile);
-         * TuileView t2 = new TuileView(tuile);
-         * 
-         * JButton btn = new JButton("Rotate");
-         * 
-         * btn.addActionListener((ActionEvent event) -> {
-         * tuile.rotate();
-         * t.update();
-         * });
-         * this.add(t);
-         * this.add(t2);
-         * this.add(btn);
-         */
-        Plateau p = new Plateau();
-        add(new PlateauView(p));
+        game = new Game();
+        plateauView = new PlateauView(game.plateau);
+
+        container = new JPanel();
+        pioche = new TuileView(game.sac.peek());
+        JButton defausse = new JButton("Défausser");
+
+        defausse.addActionListener((ActionEvent e) -> {
+            defausser();
+        });
+
+        setLayout(new BorderLayout());
+
+        add(plateauView, BorderLayout.CENTER);
+        container.add(pioche);
+        container.add(defausse);
+        add(container, BorderLayout.LINE_END);
     }
+
+    public void defausser() {
+        if (!game.sac.empty())
+            game.sac.pop();
+        if (!game.sac.empty()) {
+            pioche.model = game.sac.peek();
+            System.out.println("pavide");
+        }
+        pioche.update();
+    }
+
 }

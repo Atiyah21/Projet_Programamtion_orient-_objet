@@ -27,4 +27,18 @@ public class Utils {
 		return acc;
 	}
 
+	public static int random(int min, int max) {
+		return (int) Math.floor(Math.random() * (max - min + 1) + min);
+	}
+
+	public static Tuile randomTuile(int min, int max) {
+		int[][] acc = new int[4][3];
+		for (int i = 0; i < acc.length; i++) {
+			for (int j = 0; j < acc[i].length; j++) {
+				acc[i][j] = random(min, max);
+			}
+		}
+		return new Tuile(acc[0], acc[1], acc[2], acc[2]);
+	}
+
 }

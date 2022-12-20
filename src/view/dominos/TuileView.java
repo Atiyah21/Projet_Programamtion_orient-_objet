@@ -8,12 +8,13 @@ public class TuileView extends JPanel {
 
     Tuile model;
     Dimension preferredSize = new Dimension(100, 100);
+    int x = 0;
+    int y = 0;
 
     class Case extends JLabel {
         Case(int n) {
             super();
             setText(String.valueOf(n));
-            setBorder(BorderFactory.createLineBorder(Color.black));
             setHorizontalAlignment(SwingConstants.CENTER);
             setVerticalAlignment(SwingConstants.CENTER);
         }
@@ -33,7 +34,7 @@ public class TuileView extends JPanel {
     Case w0;
 
     public TuileView(Tuile m) {
-        super();
+        this(false);
         this.model = m;
 
         n0 = new Case(model.id_n[0]);
@@ -51,6 +52,8 @@ public class TuileView extends JPanel {
 
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        c.weighty = 1;
         c.gridx = 1;
         c.gridy = 0;
         add(n0, c);
@@ -80,25 +83,23 @@ public class TuileView extends JPanel {
         c.gridy = 3;
         add(w2, c);
 
-        setOpaque(true);
         setBackground(new Color(215, 194, 231));
 
-        setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
-    public TuileView() {
+    public TuileView(boolean reachable) {
         super();
+        setOpaque(true);
+        if (reachable)
+            setBackground(Color.green);
+        setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
     @Override
     public void setPreferredSize(Dimension d) {
         preferredSize = d;
-        for (Component c : getComponents()) {
-            c.setPreferredSize(new Dimension((int) d.getWidth() / 5, (int) d.getHeight() / 5));
-        }
     }
 
-    @Override
     public Dimension getPreferredSize() {
         return preferredSize;
     }

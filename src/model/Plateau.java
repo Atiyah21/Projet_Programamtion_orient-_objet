@@ -20,6 +20,10 @@ public class Plateau extends HashMap<Coords, Tuile> {
 		put(new Coords(0, 0), init);
 	}
 
+	public Plateau(Tuile t) {
+		put(new Coords(0, 0), t);
+	}
+
 	public String toString() {
 		StringBuilder acc = new StringBuilder();
 
@@ -79,5 +83,21 @@ public class Plateau extends HashMap<Coords, Tuile> {
 		if (acc == 0)
 			return -1;
 		return acc;
+	}
+
+	public int place(Coords c, Tuile t) {
+		int v = isValid(c, t);
+		if (v > -1) {
+			put(c, t);
+			if (c.x < min_x)
+				min_x = c.x;
+			if (c.x > max_x)
+				max_x = c.x;
+			if (c.y < min_y)
+				min_y = c.y;
+			if (c.y > max_y)
+				max_y = c.y;
+		}
+		return v;
 	}
 }
