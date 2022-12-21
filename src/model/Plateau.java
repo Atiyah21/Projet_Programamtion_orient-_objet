@@ -71,15 +71,26 @@ public class Plateau extends HashMap<Coords, Tuile> {
 		if (!isFree(n[0]))
 			if (Utils.equals(get(n[0]).id_e, t.id_w))
 				acc += Utils.sum(t.id_w);
+			else
+				return -1;
 		if (!isFree(n[1]))
 			if (Utils.equals(get(n[1]).id_w, t.id_e))
 				acc += Utils.sum(t.id_e);
+			else
+				return -1;
+
 		if (!isFree(n[2]))
 			if (Utils.equals(get(n[2]).id_s, t.id_n))
 				acc += Utils.sum(t.id_n);
+			else
+				return -1;
+
 		if (!isFree(n[3]))
 			if (Utils.equals(get(n[3]).id_n, t.id_s))
 				acc += Utils.sum(t.id_s);
+			else
+				return -1;
+
 		if (acc == 0)
 			return -1;
 		return acc;
