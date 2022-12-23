@@ -9,7 +9,6 @@ public class Menu extends JPanel {
     JButton exitBtn = new JButton();
 
     public Menu(ContentView c) {
-        Color grisFonce = new Color(29, 29, 29);
 
         c.getContentPane().setBackground(Color.white);
         c.setLayout(new GridLayout(5, 5));

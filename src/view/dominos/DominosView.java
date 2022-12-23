@@ -63,7 +63,7 @@ public class DominosView extends JPanel {
     public void place(Coords c) {
         System.out.println("Allooooo");
         if (!game.sac.empty()) {
-            int i = plateauView.model.place(c, pioche.model);
+            int i = game.place(c, pioche.model);
             System.out.println(i);
             if (i != -1) {
                 plateauView.update();
