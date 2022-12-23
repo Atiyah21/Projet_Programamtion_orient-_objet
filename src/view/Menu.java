@@ -7,11 +7,12 @@ public class Menu extends JPanel {
     JButton dominosBtn = new JButton();
     JButton carcassoneBtn = new JButton();
     JButton exitBtn = new JButton();
+    PlayerSelector playerSelector = new PlayerSelector();
 
-    public Menu(ContentView c) {
+    public Menu() {
 
-        c.getContentPane().setBackground(Color.white);
-        c.setLayout(new GridLayout(5, 5));
+        setBackground(Color.white);
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         JPanel menuBar = new JPanel();
         menuBar.setLayout(new GridLayout(6, 1));
@@ -21,38 +22,15 @@ public class Menu extends JPanel {
         carcassoneBtn.setText("Carcassone");
         exitBtn.setText("Quitter");
 
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(menuBar);
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-        c.add(new JLabel());
-
         menuBar.add(dominosBtn);
         menuBar.add(new JLabel());
         menuBar.add(carcassoneBtn);
         menuBar.add(new JLabel());
         menuBar.add(exitBtn);
         menuBar.add(new JLabel());
+
+        add(menuBar);
+        add(playerSelector);
     }
 
     public JButton getExitBtn() {
@@ -65,5 +43,9 @@ public class Menu extends JPanel {
 
     public JButton getCarcassoneBtn() {
         return carcassoneBtn;
+    }
+
+    public PlayerSelector getPlayerSelector() {
+        return playerSelector;
     }
 }

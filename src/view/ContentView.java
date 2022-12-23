@@ -21,12 +21,13 @@ public class ContentView extends JFrame {
 		 * // régler la taille de JFrame à la taille de l'écran
 		 * this.setSize(width, height);
 		 */
-		Menu menu = new Menu(this);
+		Menu menu = new Menu();
+		setContentPane(menu);
 
 		menu.getExitBtn().addActionListener(e -> System.exit(0));
 
 		menu.getDominosBtn().addActionListener(e -> {
-			DominosView dominosView = new DominosView();
+			DominosView dominosView = new DominosView(menu.getPlayerSelector().getPlayers());
 			this.setContentPane(dominosView);
 			validate();
 		});

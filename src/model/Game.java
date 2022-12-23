@@ -23,15 +23,28 @@ public class Game {
 		plateau = sac.empty() ? null : new Plateau(sac.pop());
 	}
 
+	public Game(ArrayList<Player> players) {
+		this();
+		this.players = players;
+	}
+
 	public int place(Coords c, Tuile t) {
 		int p = -1;
 		if (players.size() != 0) {
 			p = plateau.place(c, t);
 			Player current = players.get(currentPlayer % players.size());
 			current.addPoints(p);
-			System.out.println(current.getPoints());
-			currentPlayer += 1;
+			System.out.println(current.getName() + " -> " + current.getPoints());
+			defausser();
 		}
 		return p;
 	}
+
+	public void defausser() {
+		if (!sac.empty()) {
+			sac.pop();
+			currentPlayer += 1;
+		}
+	}
+
 }

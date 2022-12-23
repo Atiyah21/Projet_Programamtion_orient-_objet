@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.*;
 import model.Game;
 import model.Coords;
+import model.Player;
+import java.util.ArrayList;
 
 public class DominosView extends JPanel {
     Game game;
@@ -12,8 +14,8 @@ public class DominosView extends JPanel {
     TuileView pioche;
     JPanel container;
 
-    public DominosView() {
-        game = new Game();
+    public DominosView(ArrayList<Player> players) {
+        game = new Game(players);
         plateauView = new PlateauView(this, game.plateau);
 
         container = new JPanel();

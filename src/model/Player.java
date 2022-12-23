@@ -1,12 +1,18 @@
 package model;
 
 public class Player {
-	String nom;
+	String name;
 	int points;
+	boolean isAi;
 
 	public Player(String n) {
-		nom = n;
+		this(n, false);
+	}
+
+	public Player(String n, boolean i) {
+		name = n;
 		points = 0;
+		isAi = i;
 	}
 
 	public void addPoints(int p) {
@@ -15,5 +21,17 @@ public class Player {
 
 	public int getPoints() {
 		return points;
+	}
+
+	public void setAi(boolean ai) {
+		isAi = ai;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public boolean isAi() {
+		return isAi;
 	}
 }
