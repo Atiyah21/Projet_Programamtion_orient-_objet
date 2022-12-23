@@ -11,7 +11,7 @@ public class Game {
 	public Plateau plateau;
 	public Stack<Tuile> sac;
 	public ArrayList<Player> players;
-	int currentPlayer = 0;
+	int currentPlayer = -1;
 
 	public Game() {
 		sac = new Stack<>();
@@ -28,14 +28,33 @@ public class Game {
 		this.players = players;
 	}
 
-	public int place(Coords c, Tuile t) {
+	public Player nextPlayer() {
+		if (players.size() > 0) {
+			currentPlayer += 1;
+			return players.get(currentPlayer % players.size());
+		}
+		return null;
+	}
+
+	public Player peekPlayer() {
+		if (players.size() > 0) {
+			return players.get((currentPlayer + 1) % players.size());
+		}
+		return null;
+	}
+
+	public int place(Coords c) {
 		int p = -1;
 		if (players.size() != 0) {
-			p = plateau.place(c, t);
-			Player current = players.get(currentPlayer % players.size());
-			current.addPoints(p);
-			System.out.println(current.getName() + " -> " + current.getPoints());
-			defausser();
+			if (!sac.empty()) {
+				p = plateau.place(c, sac.peek());
+				if (p > -1) {
+					Player current = nextPlayer();
+					current.addPoints(p);
+					sac.pop();
+					System.out.println(current.getName() + " -> " + current.getPoints());
+				}
+			}
 		}
 		return p;
 	}
@@ -43,7 +62,7 @@ public class Game {
 	public void defausser() {
 		if (!sac.empty()) {
 			sac.pop();
-			currentPlayer += 1;
+			nextPlayer();
 		}
 	}
 

@@ -13,9 +13,11 @@ public class DominosView extends JPanel {
     PlateauView plateauView;
     TuileView pioche;
     JPanel container;
+    JLabel tour;
 
     public DominosView(ArrayList<Player> players) {
         game = new Game(players);
+        tour = new JLabel("C'est au tour de: " + game.peekPlayer().getName());
         plateauView = new PlateauView(this, game.plateau);
 
         container = new JPanel();
@@ -37,15 +39,16 @@ public class DominosView extends JPanel {
         container.add(pioche);
         container.add(defausse);
         container.add(rotate);
+        container.add(tour);
         add(container, BorderLayout.LINE_END);
     }
 
     public void defausser() {
-        if (!game.sac.empty())
-            game.sac.pop();
+        game.defausser();
         if (!game.sac.empty()) {
             pioche.model = game.sac.peek();
             pioche.update();
+            tour.setText("C'est le tour de: " + game.peekPlayer().getName());
         } else {
             pioche.setVisible(false);
             container.remove(pioche);
@@ -65,11 +68,13 @@ public class DominosView extends JPanel {
     public void place(Coords c) {
         System.out.println("Allooooo");
         if (!game.sac.empty()) {
-            int i = game.place(c, pioche.model);
+            int i = game.place(c);
             System.out.println(i);
             if (i != -1) {
                 plateauView.update();
-                defausser();
+                pioche.model = game.sac.peek();
+                pioche.update();
+                tour.setText("C'est le tour de: " + game.peekPlayer().getName());
             }
         }
     }

@@ -41,7 +41,7 @@ public class PlateauView extends JPanel {
                 add(tuile);
             }
         }
-
+        revalidate();
         repaint();
     }
 
