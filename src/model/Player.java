@@ -1,6 +1,6 @@
 package model;
 
-public class Player {
+public class Player implements Comparable<Player> {
 	String name;
 	int points;
 	boolean isAi;
@@ -33,5 +33,9 @@ public class Player {
 
 	public boolean isAi() {
 		return isAi;
+	}
+
+	public int compareTo(Player p) {
+		return p.getPoints() - points;
 	}
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Game {
 	static final int min_range = 1;
 	static final int max_range = 2;
-	static final int num_tuile = 50;
+	static final int num_tuile = 15;
 
 	public Plateau plateau;
 	public Stack<Tuile> sac;
@@ -26,6 +26,10 @@ public class Game {
 	public Game(ArrayList<Player> players) {
 		this();
 		this.players = players;
+	}
+
+	public ArrayList<Player> getPlayers() {
+		return players;
 	}
 
 	public Player nextPlayer() {

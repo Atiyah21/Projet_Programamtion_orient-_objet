@@ -2,8 +2,6 @@ package view;
 
 import javax.swing.*;
 
-import view.dominos.DominosView;
-
 import java.awt.*;
 
 public class ContentView extends JFrame {

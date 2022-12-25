@@ -24,6 +24,7 @@ public class PlayerSelector extends JPanel {
 		addPlayerButton.addActionListener((ActionEvent e) -> {
 			if (!textField.getText().equalsIgnoreCase("")) {
 				Player n = new Player(textField.getText());
+				textField.setText("");
 				players.add(n);
 				update();
 				System.out.println("Ajouté " + players.size() + " " + n.getName());
