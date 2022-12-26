@@ -4,9 +4,16 @@ public class SideCarcassonne extends Side{
     Sike sike;
 
     public enum Sike { 
-        CHEMIN, PRE, VILLE  
+        CHEMIN("c"), PRE("p"), VILLE("v");
+        String value;
+        private Sike(String v){
+            value = v;
+        }
     }
 
+    public SideCarcassonne(Sike s){
+        sike = s;
+    }
 
     @Override
     public void revert() {

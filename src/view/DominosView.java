@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import model.Game;
+import model.GameDominos;
 import model.Coords;
 import model.Player;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class DominosView extends JPanel {
     ScoreboardView scoreboard;
 
     public DominosView(ArrayList<Player> players) {
-        game = new Game(players);
+        game = new GameDominos(players);
         tour = new JLabel("C'est au tour de: " + game.peekPlayer().getName());
         plateauView = new PlateauView(this, game.plateau);
 
