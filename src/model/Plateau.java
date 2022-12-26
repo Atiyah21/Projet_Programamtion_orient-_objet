@@ -3,7 +3,7 @@ package model;
 import java.util.HashMap;
 import java.lang.StringBuilder;
 
-public class Plateau extends HashMap<Coords, Tuile> {
+public class Plateau extends HashMap<Coords, TuileDominos> {
 
 	public int max_x = 0;
 	public int max_y = 0;
@@ -16,11 +16,11 @@ public class Plateau extends HashMap<Coords, Tuile> {
 		int[] e = { 4, 0, 0 };
 		int[] s = { 1, 0, 0 };
 		int[] w = { 2, 0, 0 };
-		Tuile init = new Tuile(n, e, s, w);
+		TuileDominos init = new TuileDominos(n, e, s, w);
 		put(new Coords(0, 0), init);
 	}
 
-	public Plateau(Tuile t) {
+	public Plateau(TuileDominos t) {
 		put(new Coords(0, 0), t);
 	}
 
@@ -43,7 +43,7 @@ public class Plateau extends HashMap<Coords, Tuile> {
 		return cs;
 	}
 
-	public Tuile getTuile(Coords c) {
+	public TuileDominos getTuile(Coords c) {
 		return get(c);
 	}
 
@@ -55,48 +55,48 @@ public class Plateau extends HashMap<Coords, Tuile> {
 		return false;
 	}
 
-	public int isValid(Coords c, Tuile t) {
-		// return -1 if invalid, and n for winning n points
-		if (!isFree(c)) {
-			System.out.println(1);
-			return -1;
-		}
-		if (!isReachable(c)) {
-			System.out.println(2);
-			return -1;
-		}
-		int acc = 0;
+	public int isValid(Coords c, Tuile t){
+        if(!isReachable(c))
+            return -1;
 
-		Coords[] n = near(c);
-		if (!isFree(n[0]))
-			if (Utils.equals(get(n[0]).id_e, t.id_w))
-				acc += Utils.sum(t.id_w);
-			else
-				return -1;
-		if (!isFree(n[1]))
-			if (Utils.equals(get(n[1]).id_w, t.id_e))
-				acc += Utils.sum(t.id_e);
-			else
-				return -1;
+        if(get(c) != null)
+            return -1;
+        
+        int points = 0;
+        
+        Tuile left  = get(new Coords(c.x - 1, c.y));
+        Tuile right = get(new Coords(c.x + 1, c.y));
+        Tuile down  = get(new Coords(c.x, c.y - 1));
+        Tuile up    = get(new Coords(c.x, c.y + 1));
+        
+        if(left != null){
+            int tmp = t.w.getPoints(left.e);
+            if(tmp == -1)
+                return -1;
+            points += tmp;
+        }
+        if(right != null){
+            int tmp = t.e.getPoints(left.w);
+            if(tmp == -1)
+                return -1;
+            points += tmp;
+        }
+        if(down != null){
+            int tmp = t.s.getPoints(left.n);
+            if(tmp == -1)
+                return -1;
+            points += tmp;
+        }
+        if(up != null){
+            int tmp = t.n.getPoints(left.s);
+            if(tmp == -1)
+                return -1;
+            points += tmp;
+        }
+        return points;
+    }
 
-		if (!isFree(n[2]))
-			if (Utils.equals(get(n[2]).id_s, t.id_n))
-				acc += Utils.sum(t.id_n);
-			else
-				return -1;
-
-		if (!isFree(n[3]))
-			if (Utils.equals(get(n[3]).id_n, t.id_s))
-				acc += Utils.sum(t.id_s);
-			else
-				return -1;
-
-		if (acc == 0)
-			return -1;
-		return acc;
-	}
-
-	public int place(Coords c, Tuile t) {
+	public int place(Coords c, TuileDominos t) {
 		int v = isValid(c, t);
 		if (v > -1) {
 			put(c, t);

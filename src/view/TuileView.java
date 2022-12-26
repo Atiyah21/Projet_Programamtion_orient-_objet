@@ -2,11 +2,11 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
-import model.Tuile;
+import model.TuileDominos;
 
 public class TuileView extends JPanel {
 
-    Tuile model;
+    TuileDominos model;
     Dimension preferredSize = new Dimension(100, 100);
     int x = 0;
     int y = 0;
@@ -33,7 +33,7 @@ public class TuileView extends JPanel {
     Case w2;
     Case w0;
 
-    public TuileView(Tuile m) {
+    public TuileView(TuileDominos m) {
         this(false);
         this.model = m;
 

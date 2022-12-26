@@ -1,4 +1,4 @@
-import model.Tuile;
+import model.TuileDominos;
 import model.Plateau;
 import model.Coords;
 

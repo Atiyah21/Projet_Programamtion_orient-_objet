@@ -1,4 +1,6 @@
 package model;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
 public class Utils {
 
@@ -31,14 +33,28 @@ public class Utils {
 		return (int) Math.floor(Math.random() * (max - min + 1) + min);
 	}
 
-	public static Tuile randomTuile(int min, int max) {
+	public static TuileDominos randomTuile(int min, int max) {
 		int[][] acc = new int[4][3];
 		for (int i = 0; i < acc.length; i++) {
 			for (int j = 0; j < acc[i].length; j++) {
 				acc[i][j] = random(min, max);
 			}
 		}
-		return new Tuile(acc[0], acc[1], acc[2], acc[2]);
+		return new TuileDominos(acc[0], acc[1], acc[2], acc[2]);
+	}
+
+	public static BufferedImage rotate(BufferedImage src) {
+		int width = src.getWidth();
+		int height = src.getHeight();
+	
+		BufferedImage dest = new BufferedImage(height, width, src.getType());
+	
+		Graphics2D graphics2D = dest.createGraphics();
+		graphics2D.translate((height - width) / 2, (height - width) / 2);
+		graphics2D.rotate(Math.PI / 2, height / 2, width / 2);
+		graphics2D.drawRenderedImage(src, null);
+	
+		return dest;
 	}
 
 }
