@@ -5,16 +5,10 @@ import java.util.ArrayList;
 
 public class Game {
 	
-	
-
 	public Plateau plateau;
-	public Stack<TuileDominos> sac;
+	public Stack<Tuile> sac;
 	public ArrayList<Player> players;
 	int currentPlayer = -1;
-
-	
-
-	
 
 	public ArrayList<Player> getPlayers() {
 		return players;
@@ -56,6 +50,10 @@ public class Game {
 			sac.pop();
 			nextPlayer();
 		}
+	}
+
+	public void rotatePioche() {
+		sac.peek().rotate();
 	}
 
 }

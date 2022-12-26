@@ -40,7 +40,7 @@ public class Utils {
 				acc[i][j] = random(min, max);
 			}
 		}
-		return new TuileDominos(acc[0], acc[1], acc[2], acc[2]);
+		return new TuileDominos(acc[0], acc[1], acc[2], acc[3]);
 	}
 
 	public static BufferedImage rotate(BufferedImage src) {

@@ -6,7 +6,7 @@ import java.util.Stack;
 public class GameDominos extends Game{
     static final int min_range = 1;
 	static final int max_range = 2;
-    static final int num_tuile = 3;
+    static final int num_tuile = 15;
 
     public GameDominos() {
 		sac = new Stack<>();

@@ -15,7 +15,7 @@ public class SideDominos extends Side {
     }
 
     public void revert() {
-        Utils.revert(tab);    
+        tab = Utils.revert(tab);    
     }
 
     public int[] getTab() {

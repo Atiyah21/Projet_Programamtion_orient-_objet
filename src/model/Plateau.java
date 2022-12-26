@@ -3,7 +3,7 @@ package model;
 import java.util.HashMap;
 import java.lang.StringBuilder;
 
-public class Plateau extends HashMap<Coords, TuileDominos> {
+public class Plateau extends HashMap<Coords, Tuile> {
 
 	public int max_x = 0;
 	public int max_y = 0;
@@ -20,7 +20,8 @@ public class Plateau extends HashMap<Coords, TuileDominos> {
 		put(new Coords(0, 0), init);
 	}
 
-	public Plateau(TuileDominos t) {
+	public Plateau(Tuile t) {
+		super();
 		put(new Coords(0, 0), t);
 	}
 
@@ -43,7 +44,7 @@ public class Plateau extends HashMap<Coords, TuileDominos> {
 		return cs;
 	}
 
-	public TuileDominos getTuile(Coords c) {
+	public Tuile getTuile(Coords c) {
 		return get(c);
 	}
 
@@ -76,19 +77,19 @@ public class Plateau extends HashMap<Coords, TuileDominos> {
             points += tmp;
         }
         if(right != null){
-            int tmp = t.e.getPoints(left.w);
+            int tmp = t.e.getPoints(right.w);
             if(tmp == -1)
                 return -1;
             points += tmp;
         }
         if(down != null){
-            int tmp = t.s.getPoints(left.n);
+            int tmp = t.s.getPoints(down.n);
             if(tmp == -1)
                 return -1;
             points += tmp;
         }
         if(up != null){
-            int tmp = t.n.getPoints(left.s);
+            int tmp = t.n.getPoints(up.s);
             if(tmp == -1)
                 return -1;
             points += tmp;
@@ -96,7 +97,7 @@ public class Plateau extends HashMap<Coords, TuileDominos> {
         return points;
     }
 
-	public int place(Coords c, TuileDominos t) {
+	public int place(Coords c, Tuile t) {
 		int v = isValid(c, t);
 		if (v > -1) {
 			put(c, t);

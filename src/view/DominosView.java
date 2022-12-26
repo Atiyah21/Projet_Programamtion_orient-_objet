@@ -25,7 +25,7 @@ public class DominosView extends JPanel {
         container = new JPanel();
         scoreboard = new ScoreboardView(game.getPlayers());
         container.setLayout(new GridBagLayout());
-        pioche = new TuileView(game.sac.peek());
+        pioche = new PiocheView(game.sac);
         JButton defausse = new JButton("Défausser");
         JButton rotate = new JButton("Rotate");
 
@@ -67,47 +67,23 @@ public class DominosView extends JPanel {
     }
 
     public void defausser() {
+        System.out.println("deffausse");
         game.defausser();
-        if (!game.sac.empty()) {
-            pioche.model = game.sac.peek();
-            pioche.update();
-            tour.setText("C'est le tour de: " + game.peekPlayer().getName());
-        } else {
-            pioche.setVisible(false);
-            container.remove(pioche);
-            pioche = new TuileView(false);
-            container.add(pioche, 0);
-            container.repaint();
-        }
+        pioche.update();
     }
 
     public void rotate() {
-        if (pioche.model != null) {
-            pioche.model.rotate();
-            pioche.update();
-        }
+        System.out.println("rotate");
+        game.rotatePioche();
+        pioche.update();
     }
 
     public void place(Coords c) {
         System.out.println("Allooooo");
-        if (!game.sac.empty()) {
-            int i = game.place(c);
-            System.out.println(i);
-            if (i != -1) {
-                plateauView.update();
-                if (!game.sac.empty()) {
-                    pioche.model = game.sac.peek();
-                    pioche.update();
-                    scoreboard.update();
-                    tour.setText("C'est le tour de: " + game.peekPlayer().getName());
-                } else {
-                    pioche.setVisible(false);
-                    container.remove(pioche);
-                    pioche = new TuileView(false);
-                    container.add(pioche, 0);
-                    container.repaint();
-                }
-            }
-        }
+        game.place(c);
+        plateauView.update();
+        pioche.update();
+        tour.setText(game.peekPlayer().getName());
+        scoreboard.update();
     }
 }

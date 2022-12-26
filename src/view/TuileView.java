@@ -1,20 +1,31 @@
 package view;
 
 import javax.swing.*;
+
 import java.awt.*;
 import model.*;
 
-public class TuileView extends JPanel implements Updatable{
+public class TuileView extends UpdatableView{
     Dimension preferredSize = new Dimension(100, 100);
     int x = 0;
     int y = 0;
+    UpdatableView t;
+    Tuile model;
 
     public TuileView(Tuile m) {
+        model = m;
      if(m instanceof TuileDominos){
-        add(new TuileDominosView((TuileDominos) m));
+        t = new TuileDominosView((TuileDominos) m);
      }else if(m instanceof TuileCarcassone){
-        add(new TuileCarcassonneView());
+        t = new TuileCarcassonneView();
      }
+     add(t);
+    }
+
+    public TuileView(){}
+
+    public TuileView(boolean isReachable){
+        add(new TuileDominosView(isReachable));
     }
 
     @Override
@@ -28,8 +39,7 @@ public class TuileView extends JPanel implements Updatable{
 
     @Override
     public void update() {
-        // TODO Auto-generated method stub
-        
+        t.update();
     }
 
 }
