@@ -1,5 +1,4 @@
 import model.Tuile;
-import model.Orientation;
 import model.Plateau;
 import model.Coords;
 
