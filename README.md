@@ -8,6 +8,7 @@ ant
 ```
 
 Without Ant:
+Go to src directory and execute the following command
 ```bash
-java src/App.java
+javac App.java && java App
 ```
