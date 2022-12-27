@@ -2,6 +2,8 @@ package view;
 
 import javax.swing.*;
 
+import model.GameDominos;
+
 import java.awt.*;
 
 public class ContentView extends JFrame {
@@ -25,7 +27,7 @@ public class ContentView extends JFrame {
 		menu.getExitBtn().addActionListener(e -> System.exit(0));
 
 		menu.getDominosBtn().addActionListener(e -> {
-			DominosView dominosView = new DominosView(menu.getPlayerSelector().getPlayers());
+			DominosView dominosView = new DominosView(new GameDominos(menu.getPlayerSelector().getPlayers()));
 			this.setContentPane(dominosView);
 			validate();
 		});

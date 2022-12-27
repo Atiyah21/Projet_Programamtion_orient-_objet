@@ -12,13 +12,13 @@ import java.util.ArrayList;
 public class DominosView extends JPanel {
     Game game;
     PlateauView plateauView;
-    TuileView pioche;
+    PiocheView pioche;
     JPanel container;
     JLabel tour;
     ScoreboardView scoreboard;
 
-    public DominosView(ArrayList<Player> players) {
-        game = new GameDominos(players);
+    public DominosView(Game game) {
+        this.game = game;
         tour = new JLabel("C'est au tour de: " + game.peekPlayer().getName());
         plateauView = new PlateauView(this, game.plateau);
 
@@ -67,8 +67,8 @@ public class DominosView extends JPanel {
     }
 
     public void defausser() {
-        System.out.println("deffausse");
-        game.defausser();
+        System.out.println("defausse");
+        game.defausser(); // Ok
         pioche.update();
     }
 
@@ -85,5 +85,9 @@ public class DominosView extends JPanel {
         pioche.update();
         tour.setText(game.peekPlayer().getName());
         scoreboard.update();
+        System.out.println("minx:" + game.plateau.min_x);
+        System.out.println("miny:" + game.plateau.min_y);
+        System.out.println("maxx:" + game.plateau.max_x);
+        System.out.println("maxy:" + game.plateau.max_y);
     }
 }

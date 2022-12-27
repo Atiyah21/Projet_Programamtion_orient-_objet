@@ -83,13 +83,13 @@ public class Plateau extends HashMap<Coords, Tuile> {
             points += tmp;
         }
         if(down != null){
-            int tmp = t.s.getPoints(down.n);
+            int tmp = t.n.getPoints(down.s);
             if(tmp == -1)
                 return -1;
             points += tmp;
         }
         if(up != null){
-            int tmp = t.n.getPoints(up.s);
+            int tmp = t.s.getPoints(up.n);
             if(tmp == -1)
                 return -1;
             points += tmp;
