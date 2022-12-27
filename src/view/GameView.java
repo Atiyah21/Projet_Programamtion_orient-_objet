@@ -9,7 +9,7 @@ import model.Coords;
 import model.Player;
 import java.util.ArrayList;
 
-public class DominosView extends JPanel {
+public class GameView extends JPanel {
     Game game;
     PlateauView plateauView;
     PiocheView pioche;
@@ -17,7 +17,7 @@ public class DominosView extends JPanel {
     JLabel tour;
     ScoreboardView scoreboard;
 
-    public DominosView(Game game) {
+    public GameView(Game game) {
         this.game = game;
         tour = new JLabel("C'est au tour de: " + game.peekPlayer().getName());
         plateauView = new PlateauView(this, game.plateau);

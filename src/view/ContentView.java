@@ -27,7 +27,7 @@ public class ContentView extends JFrame {
 		menu.getExitBtn().addActionListener(e -> System.exit(0));
 
 		menu.getDominosBtn().addActionListener(e -> {
-			DominosView dominosView = new DominosView(new GameDominos(menu.getPlayerSelector().getPlayers()));
+			GameView dominosView = new GameView(new GameDominos(menu.getPlayerSelector().getPlayers()));
 			this.setContentPane(dominosView);
 			validate();
 		});

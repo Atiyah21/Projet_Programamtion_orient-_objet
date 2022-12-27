@@ -8,9 +8,9 @@ import model.Coords;
 
 public class PlateauView extends JPanel {
     Plateau model;
-    DominosView view;
+    GameView view;
 
-    public PlateauView(DominosView v, Plateau model) {
+    public PlateauView(GameView v, Plateau model) {
         super();
         this.model = model;
         this.view = v;
@@ -46,10 +46,10 @@ public class PlateauView extends JPanel {
     }
 
     public class CustomListener implements MouseListener {
-        DominosView dominos;
+        GameView dominos;
         Coords coord;
 
-        public CustomListener(DominosView g, Coords c) {
+        public CustomListener(GameView g, Coords c) {
             dominos = g;
             coord = c;
         }
