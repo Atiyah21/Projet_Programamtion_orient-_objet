@@ -14,13 +14,13 @@ public class ContentView extends JFrame {
 		setLayout(new BorderLayout());
 
 		// récuperer la dimension de l'écran
-		/*
-		 * int width = Toolkit.getDefaultToolkit().getScreenSize().width;
-		 * int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-		 * 
-		 * // régler la taille de JFrame à la taille de l'écran
-		 * this.setSize(width, height);
-		 */
+		
+		 int width = Toolkit.getDefaultToolkit().getScreenSize().width;
+		 int height = Toolkit.getDefaultToolkit().getScreenSize().height;
+		  
+		  // régler la taille de JFrame à la taille de l'écran
+		 this.setSize(width, height);
+		 
 		Menu menu = new Menu();
 		setContentPane(menu);
 
