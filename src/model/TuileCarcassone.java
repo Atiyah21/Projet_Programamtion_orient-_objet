@@ -17,7 +17,7 @@ public class TuileCarcassone extends Tuile{
         this.w = new SideCarcassonne(w);
         this.bouclier = bouclier;
         try{
-            i = ImageIO.read(new File("assets/" + n.value + e.value + s.value + w.value + (bouclier ? "_" : "") + ".png"));
+            i = ImageIO.read(new File("src/assets/" + n.value + e.value + s.value + w.value + (bouclier ? "_" : "") + ".png"));
         
         } catch (IOException exn) {
             System.out.println("Erreur lors du chargement de l'image");
