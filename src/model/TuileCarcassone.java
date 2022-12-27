@@ -23,6 +23,11 @@ public class TuileCarcassone extends Tuile{
             System.out.println("Erreur lors du chargement de l'image");
             System.exit(0);
         }
+        
+    }
+
+    public BufferedImage getI() {
+        return i;
     }
 
     @Override
@@ -36,4 +41,5 @@ public class TuileCarcassone extends Tuile{
         s = e;
         e = tmp;
     }
+
 }
