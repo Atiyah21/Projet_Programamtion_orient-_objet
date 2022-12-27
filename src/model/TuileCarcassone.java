@@ -32,7 +32,7 @@ public class TuileCarcassone extends Tuile{
 
     @Override
     public void rotate() {
-        Utils.rotate(i);    
+        i = Utils.rotate(i);    
         w.revert();
         e.revert();
         Side tmp = n;
