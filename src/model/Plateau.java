@@ -1,7 +1,6 @@
 package model;
 
 import java.util.HashMap;
-import java.lang.StringBuilder;
 
 public class Plateau extends HashMap<Coords, Tuile> {
 
@@ -25,21 +24,51 @@ public class Plateau extends HashMap<Coords, Tuile> {
 		put(new Coords(0, 0), t);
 	}
 
-	public String toString() {
-		for(int i = min_x; i<max_x; i++){
-			for(int j =min_y; j<max_x; j++){
-				if(get(new Coords(0,0)) != null) System.out.print(".");
-				else{System.out.print(get(new Coords(i,j)));}
-				System.out.print("          ");
+	public String toString() { 
+
+		String acc1 = "";
+		String acc2 = "";
+		String acc3 = "";
+		String acc4 = "";
+		String acc5 = "";
+		for(int i = min_x; i<=max_x; i++){
+			for(int j =min_y; j<=max_y; j++){
+				if(get(new Coords(i,j)) == null) {
+					acc1 += "XXXXXXXXX";
+					acc2 += "XXXXXXXXX";
+					acc3 += "XXXXXXXXX";
+					acc4 += "XXXXXXXXX";
+					acc5 += "XXXXXXXXX";
+				}
+				else{
+					TuileDominos t = (TuileDominos) get(new Coords(i,j));
+					
+					SideDominos n = (SideDominos) t.getN();
+					SideDominos w = (SideDominos) t.getW();
+					SideDominos e = (SideDominos) t.getE();
+					SideDominos s = (SideDominos) t.getS();
+					
+					acc1 += "X-" + n.getTab()[0] + "-" + n.getTab()[1] + "-" +  n.getTab()[2] + "-X ";
+					acc2 += w.getTab()[0] + "       " +e.getTab()[0] + " " ;
+					acc3 += w.getTab()[1] + "       " +e.getTab()[1] + " ";
+					acc4 += w.getTab()[2] + "       " +e.getTab()[2] + " ";
+					acc5 += "X-" + s.getTab()[0] + "-" + s.getTab()[1] + "-" +  s.getTab()[2] + "-X ";
+				}
+				
 			}
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
-		}
+				System.out.println(acc1);
+				System.out.println(acc2);
+				System.out.println(acc3);
+				System.out.println(acc4);
+				System.out.println(acc5);
+				System.out.println();
+				
+				acc1 = "";
+				acc2 = "";
+				acc3 = "";
+				acc4 = "";
+				acc5 = "";
+		}	
 		return "";
 	}
 

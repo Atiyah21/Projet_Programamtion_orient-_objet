@@ -15,6 +15,7 @@ public class App {
 		tab[2] = 2;
 		TuileDominos t = new TuileDominos(tab, tab, tab, tab);
 		Plateau p = new Plateau(t);
+		p.place(new Coords(1,0), t);
 		p.place(new Coords(0,1), t);
 		System.out.println(p);
 	}
