@@ -9,18 +9,13 @@ import java.awt.EventQueue;
 public class App {
 	public static void main(String[] args) {
 
-		EventQueue.invokeLater(() -> {
-			ContentView frame = new ContentView();
-		});
-
-		/*JFrame fenetre = new JFrame();
-		TuileCarcassone t = new TuileCarcassone(Sike.CHEMIN, Sike.CHEMIN, Sike.CHEMIN, Sike.CHEMIN, false);
-		
-
-		ImageIcon icon = new ImageIcon(t.getI());
-
-		fenetre.add(new JLabel(icon));
-
-		fenetre.setVisible(true);*/
+		int[] tab = new int[3];
+		tab[0] = 0;
+		tab[1] = 1;
+		tab[2] = 2;
+		TuileDominos t = new TuileDominos(tab, tab, tab, tab);
+		Plateau p = new Plateau(t);
+		p.place(new Coords(0,1), t);
+		System.out.println(p);
 	}
 }

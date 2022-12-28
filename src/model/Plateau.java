@@ -26,9 +26,21 @@ public class Plateau extends HashMap<Coords, Tuile> {
 	}
 
 	public String toString() {
-		StringBuilder acc = new StringBuilder();
-
-		return acc.toString();
+		for(int i = min_x; i<max_x; i++){
+			for(int j =min_y; j<max_x; j++){
+				if(get(new Coords(0,0)) != null) System.out.print(".");
+				else{System.out.print(get(new Coords(i,j)));}
+				System.out.print("          ");
+			}
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+		}
+		return "";
 	}
 
 	public boolean isFree(Coords c) {

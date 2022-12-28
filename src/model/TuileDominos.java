@@ -22,17 +22,17 @@ public class TuileDominos extends Tuile{
 	public String toString() {
 		String acc = "X";
 		for (int i = 0; i < 3; i++) {
-			acc += ((SideDominos) n).getTab()[i];
+			acc +="-" + ((SideDominos) n).getTab()[i];
 		}
-		acc += "X\n";
+		acc += "-X\n";
 		for (int i = 0; i < 3; i++) {
-			acc += ((SideDominos) w).getTab()[i] + "   " + ((SideDominos) e).getTab()[i] + "\n";
+			acc += ((SideDominos) w).getTab()[i] + "       " + ((SideDominos) e).getTab()[i] + "\n";
 		}
 		acc += "X";
 		for (int i = 0; i < 3; i++) {
-			acc += ((SideDominos) s).getTab()[i];
+			acc += "-" + ((SideDominos) s).getTab()[i];
 		}
-		acc += "X";
+		acc += "-X";
 		return acc;
 	}
 }
