@@ -12,5 +12,15 @@ public class App {
 		EventQueue.invokeLater(() -> {
 			ContentView frame = new ContentView();
 		});
+
+		/*JFrame fenetre = new JFrame();
+		TuileCarcassone t = new TuileCarcassone(Sike.CHEMIN, Sike.CHEMIN, Sike.CHEMIN, Sike.CHEMIN, false);
+		
+
+		ImageIcon icon = new ImageIcon(t.getI());
+
+		fenetre.add(new JLabel(icon));
+
+		fenetre.setVisible(true);*/
 	}
 }

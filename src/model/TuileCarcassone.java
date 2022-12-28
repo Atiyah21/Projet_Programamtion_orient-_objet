@@ -23,11 +23,16 @@ public class TuileCarcassone extends Tuile{
             System.out.println("Erreur lors du chargement de l'image");
             System.exit(0);
         }
+        
+    }
+
+    public BufferedImage getI() {
+        return i;
     }
 
     @Override
     public void rotate() {
-        Utils.rotate(i);    
+        i = Utils.rotate(i);    
         w.revert();
         e.revert();
         Side tmp = n;
@@ -36,4 +41,5 @@ public class TuileCarcassone extends Tuile{
         s = e;
         e = tmp;
     }
+
 }

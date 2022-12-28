@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 
+import model.GameCarcassonne;
 import model.GameDominos;
 
 import java.awt.*;
@@ -32,13 +33,13 @@ public class ContentView extends JFrame {
 			validate();
 		});
 
-		/*
-		 * menu.getCarcassoneBtn().addActionListener(e -> {
-		 * CarcassonneView carcassonneView = new CarcassonneView();
-		 * this.setContentPane(carcassonneView);
-		 * validate();
-		 * });
-		 */
+		
+		menu.getCarcassoneBtn().addActionListener(e -> {
+			GameView carcassonneView = new GameView(new GameCarcassonne(menu.getPlayerSelector().getPlayers()));
+			this.setContentPane(carcassonneView);
+			validate();
+		});
+		 
 
 		this.setVisible(true);
 	}
