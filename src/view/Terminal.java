@@ -43,7 +43,7 @@ public class Terminal {
 				vainqueur = p;
 		}
 
-		System.out.print("Le vainqueur est " + vainqueur);
+		System.out.print("Le vainqueur est " + vainqueur.getName());
 		sc.close();
 	}
 }
