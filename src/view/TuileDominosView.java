@@ -79,7 +79,10 @@ public class TuileDominosView extends TuileView {
         c.gridy = 3;
         add(w2, c);
 
-        setBackground(new Color(215, 194, 231));
+        // setBackground(new Color(215, 194, 231));
+        if (model.getPlacer() != null) {
+            setBackground(model.getPlacer().getColor());
+        }
 
     }
 

@@ -4,7 +4,7 @@ import java.util.Stack;
 import java.util.ArrayList;
 
 public class Game {
-	
+
 	public Plateau plateau;
 	public Stack<Tuile> sac;
 	public ArrayList<Player> players;
@@ -45,7 +45,7 @@ public class Game {
 				if (p > -1) {
 					Player current = nextPlayer();
 					current.addPoints(p);
-					sac.pop();
+					sac.pop().setPlacer(current);
 					System.out.println(current.getName() + " -> " + current.getPoints());
 				}
 			}

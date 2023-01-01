@@ -1,9 +1,12 @@
 package model;
 
+import java.awt.Color;
+
 public class Player implements Comparable<Player> {
 	String name;
 	int points;
 	boolean isAi;
+	Color color = Color.white;
 
 	public Player(String n) {
 		this(n, false);
@@ -13,6 +16,12 @@ public class Player implements Comparable<Player> {
 		name = n;
 		points = 0;
 		isAi = i;
+		color = Utils.randomColor();
+	}
+
+	public Player(String n, boolean i, Color c) {
+		this(n, i);
+		color = c;
 	}
 
 	public void addPoints(int p) {
@@ -33,6 +42,14 @@ public class Player implements Comparable<Player> {
 
 	public boolean isAi() {
 		return isAi;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
 	}
 
 	public int compareTo(Player p) {
