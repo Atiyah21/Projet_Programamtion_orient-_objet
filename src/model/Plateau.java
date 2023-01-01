@@ -63,12 +63,13 @@ public class Plateau extends HashMap<Coords, Tuile> {
 		String acc4 = "   ";
 		String acc5 = "   ";
 
-		for (int k = min_y - 1; k <= max_y + 1; k++) {
-			acc += "     " + k + "     ";
+		for (int k = min_x - 1; k <= max_x + 1; k++) {
+			acc += "     " + k + "    ";
 		}
 		System.out.println(acc);
 
 		for (int j = min_y - 1; j <= max_y + 1; j++) {
+			
 			for (int i = min_x - 1; i <= max_x + 1; i++) {
 
 				if (!isFree(new Coords(i, j))) {
