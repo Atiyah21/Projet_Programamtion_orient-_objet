@@ -1,8 +1,6 @@
-import model.*;
 import view.*;
 
 import java.awt.EventQueue;
-import java.util.Scanner;
 
 public class App {
 	public static void main(String[] args) {
@@ -10,7 +8,9 @@ public class App {
 			if (args[0].equalsIgnoreCase("term"))
 				Terminal.launch();
 		} else if (args.length == 0) {
-
+			EventQueue.invokeLater(() -> {
+				new ContentView();
+			});
 		}
 	}
 }
