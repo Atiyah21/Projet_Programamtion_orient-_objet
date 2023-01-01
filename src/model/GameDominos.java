@@ -22,4 +22,24 @@ public class GameDominos extends Game{
 		this();
 		this.players = players;
 	}
+	
+	@Override
+	public Plateau getPlateau() {
+		return super.getPlateau();
+	}
+
+	@Override
+	public Stack<Tuile> getSac() {
+		return super.getSac();
+	}
+
+	public static int getNumTuile() {
+		return num_tuile;
+	}
+
+	@Override
+	public ArrayList<Player> getPlayers() {
+		// TODO Auto-generated method stub
+		return super.getPlayers();
+	}
 }

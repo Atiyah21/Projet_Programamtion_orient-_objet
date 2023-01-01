@@ -14,6 +14,14 @@ public class Game {
 		return players;
 	}
 
+	public Stack<Tuile> getSac() {
+		return sac;
+	}
+
+	public Plateau getPlateau() {
+		return plateau;
+	}
+
 	public Player nextPlayer() {
 		if (players.size() > 0) {
 			currentPlayer += 1;
